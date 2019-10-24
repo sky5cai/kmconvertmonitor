@@ -23,6 +23,8 @@ public class FileWrite {
 
     public static List<String> readFile(String filePath){
         List<String> lists=null;
+        FileReader fileReader =null;
+        BufferedReader br=null;
         try {
             lists = new ArrayList<>();
             File fileSystemMonitor=new File(filePath);
@@ -30,7 +32,8 @@ public class FileWrite {
                 fileSystemMonitor.createNewFile();
             }
             String line="";
-            BufferedReader br=new BufferedReader(new FileReader(filePath));
+            fileReader = new FileReader(filePath);
+            br=new BufferedReader(fileReader);
             while((line=br.readLine())!=null){
                 lists.add(line);
             }
@@ -39,6 +42,13 @@ public class FileWrite {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        }finally {
+            try {
+                if(fileReader!=null)  fileReader.close();
+                if(br!=null) br.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return lists;
     }
