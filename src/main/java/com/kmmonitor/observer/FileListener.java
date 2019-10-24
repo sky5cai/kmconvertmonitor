@@ -33,7 +33,7 @@ public class FileListener extends FileAlterationListenerAdaptor {
             System.out.println("文件被创建了" + file.getName());
 //            PdfConverterUtilByAspose pdfConverterUtilByAspose = new PdfConverterUtilByAspose();
             PdfConverterUtilByAspose.doc2pdf(filePath,pdfFile.getPath());
-
+            System.out.println("dd");
 
             //转换完之后删掉文件
             if(file.exists()){
