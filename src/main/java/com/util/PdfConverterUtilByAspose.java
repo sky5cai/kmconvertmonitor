@@ -8,7 +8,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.net.URL;
 
 public class PdfConverterUtilByAspose {
 
@@ -124,7 +123,7 @@ public class PdfConverterUtilByAspose {
 	        String filePaths="F:\\office\\添加脚本帮助指南123.docx";
 	        String pdfPath="F:\\office\\添加脚本帮助指南123.pdf";
 //	        String pdfPath="D:/t.pdf";
-	         doc2pdf(filePaths, pdfPath);//filePaths需要转换的文件位置 pdfPath为存储位置
+//	         doc2pdf(filePaths, pdfPath);//filePaths需要转换的文件位置 pdfPath为存储位置
 //	        String excel2pdf="D:/t.xlsx";
 //	        excel2pdf(excel2pdf,pdfPath);
 	    }

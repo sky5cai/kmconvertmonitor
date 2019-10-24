@@ -31,7 +31,9 @@ public class FileListener extends FileAlterationListenerAdaptor {
             File pdfFile = new File(parentFile.getPath()+File.separator+"swf",pdfFileName);
             //如果是doc文档，则创建pdf
             System.out.println("文件被创建了" + file.getName());
+//            PdfConverterUtilByAspose pdfConverterUtilByAspose = new PdfConverterUtilByAspose();
             PdfConverterUtilByAspose.doc2pdf(filePath,pdfFile.getPath());
+
 
             //转换完之后删掉文件
             if(file.exists()){
