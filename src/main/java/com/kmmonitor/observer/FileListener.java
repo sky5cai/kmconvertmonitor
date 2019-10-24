@@ -1,10 +1,13 @@
 package com.kmmonitor.observer;
 
 
+import com.util.FileWrite;
 import com.util.PdfConverterUtilByAspose;
 import org.apache.commons.io.monitor.FileAlterationListenerAdaptor;
+import org.junit.Test;
 
 import java.io.File;
+import java.util.List;
 
 public class FileListener extends FileAlterationListenerAdaptor {
 
@@ -16,12 +19,24 @@ public class FileListener extends FileAlterationListenerAdaptor {
     @Override
     public void onFileCreate(File file) {
 
-        if(file.getParentFile().getName().equals("a")){
-            return;
+        List<String> lists = FileWrite.readFile(file.getPath());
+        for (String filePath : lists) {
+            //截取路径
+            File fileTemp = new File(filePath);
+            String fileName = fileTemp.getName();
+            String pdfFileName = fileName.substring(0,fileName.lastIndexOf("."))+".pdf";
+            File parentFile = fileTemp.getParentFile();
+            File pdfFile = new File(parentFile.getPath()+File.separator+"swf",pdfFileName);
+            //如果是doc文档，则创建pdf
+            System.out.println("文件被创建了" + file.getName());
+            PdfConverterUtilByAspose.doc2pdf(filePath,pdfFile.getPath());
         }
-        //如果是doc文档，则创建pdf
-        System.out.println("文件被创建了" + file.getName());
-        PdfConverterUtilByAspose.doc2pdf(file.getPath(),"F://a.pdf");
+
+    }
+
+    @Test
+    public void test1(){
+
     }
 
     @Override
