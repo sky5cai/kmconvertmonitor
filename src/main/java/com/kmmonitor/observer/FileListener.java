@@ -21,6 +21,8 @@ public class FileListener extends FileAlterationListenerAdaptor {
 
         List<String> lists = FileWrite.readFile(file.getPath());
         for (String filePath : lists) {
+            String ffix = filePath.substring(filePath.lastIndexOf(".")+1,filePath.length());
+            System.out.println(ffix);
             //截取路径
             File fileTemp = new File(filePath);
             String fileName = fileTemp.getName();
@@ -30,8 +32,12 @@ public class FileListener extends FileAlterationListenerAdaptor {
             //如果是doc文档，则创建pdf
             System.out.println("文件被创建了" + file.getName());
             PdfConverterUtilByAspose.doc2pdf(filePath,pdfFile.getPath());
-        }
 
+            //转换完之后删掉文件
+            if(file.exists()){
+                file.delete();
+            }
+        }
     }
 
     @Test

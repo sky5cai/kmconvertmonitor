@@ -51,7 +51,7 @@ public class MonitorFolder {
     }
     //针对文件的监视器，拿到FileChangeEvent事件
     private void FileListenerFileChangeEvent() throws Exception{
-        String filePath="F:\\monitor";
+        String filePath="D:\\project\\test434\\obpm434\\obpm-demo\\uploads\\item\\convert";
         FileObject fileObj = null;
         if (StringUtils.isEmpty(filePath)) {
             throw new IOException("文件 '" + filePath + "' 为空.");
@@ -75,7 +75,7 @@ public class MonitorFolder {
 
     //针对文件的监视器，拿到文件
     private void FileListenerFile() throws Exception{
-        String filePath = "F:\\monitor";// 监控目录
+        String filePath = "D:\\project\\test434\\obpm434\\obpm-demo\\uploads\\item\\convert";// 监控目录
         long interval = TimeUnit.MILLISECONDS.toMillis(100);//设置间隔0.1秒
         FileAlterationObserver observer = new FileAlterationObserver(filePath);
         observer.addListener(new FileListener());//设置文件变化监听器
