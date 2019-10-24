@@ -15,8 +15,12 @@ public class FileListener extends FileAlterationListenerAdaptor {
 
     @Override
     public void onFileCreate(File file) {
-        System.out.println("文件被创建了" + file.getName());
+
+        if(file.getParentFile().getName().equals("a")){
+            return;
+        }
         //如果是doc文档，则创建pdf
+        System.out.println("文件被创建了" + file.getName());
         PdfConverterUtilByAspose.doc2pdf(file.getPath(),"F://a.pdf");
     }
 
