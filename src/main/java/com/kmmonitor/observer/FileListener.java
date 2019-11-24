@@ -4,7 +4,6 @@ package com.kmmonitor.observer;
 import com.util.FileWrite;
 import com.util.PdfConverterUtilByAspose;
 import org.apache.commons.io.monitor.FileAlterationListenerAdaptor;
-import org.junit.Test;
 
 import java.io.File;
 import java.util.List;
@@ -31,7 +30,6 @@ public class FileListener extends FileAlterationListenerAdaptor {
             File pdfFile = new File(parentFile.getPath()+File.separator+"swf",pdfFileName);
             //如果是doc文档，则创建pdf
             System.out.println("文件被创建了" + file.getName());
-//            PdfConverterUtilByAspose pdfConverterUtilByAspose = new PdfConverterUtilByAspose();
             PdfConverterUtilByAspose.doc2pdf(filePath,pdfFile.getPath());
             System.out.println("dd");
 
@@ -40,11 +38,6 @@ public class FileListener extends FileAlterationListenerAdaptor {
                 file.delete();
             }
         }
-    }
-
-    @Test
-    public void test1(){
-
     }
 
     @Override
